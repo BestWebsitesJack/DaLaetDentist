@@ -343,8 +343,8 @@ nav {
 }
 .hero-image-frame {
   position: relative;
-  width: 92%;
-  height: 88%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   will-change: transform;
   transition: transform 0.6s cubic-bezier(0.2,0,0,1);
@@ -941,6 +941,18 @@ footer {
   letter-spacing: 1px;
 }
 
+
+/* CONTACT FORM */
+.contact-form .form-field { margin-bottom: 40px; }
+.contact-form label { display: block; font-size: 10px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--teal-deep); font-weight: 600; margin-bottom: 14px; }
+.contact-form input, .contact-form textarea { width: 100%; border: none; border-bottom: 1px solid var(--rule); padding: 12px 0; font-family: var(--serif); font-size: 20px; color: var(--ink); background: transparent; transition: border-color 0.3s; font-weight: 300; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #ccc; font-style: italic; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-bottom-color: var(--teal-deep); }
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.form-submit { margin-top: 24px; background: none; border: none; border-bottom: 1px solid var(--teal); padding: 8px 0; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 20px; color: var(--teal-deep); cursor: pointer; transition: all 0.3s; }
+.form-submit:hover { color: var(--ink); border-color: var(--ink); }
+.form-note { font-size: 12px; color: #999; font-style: italic; font-family: var(--serif); margin-top: 24px; }
+
 /* ═══ REVEALS ═══ */
 .reveal {
   opacity: 0;
@@ -1066,11 +1078,18 @@ footer {
 
   <!-- Services -->
   <section id="services-home">
-    <div class="section-head reveal">
+    <div class="section-head reveal" style="grid-template-columns: 160px 1.1fr 1fr; gap: 60px; align-items: start;">
       <div class="section-number">01 &mdash; What We Do</div>
-      <div><h2>A practice<br><em>for everyone</em><br>in the family.</h2></div>
+      <div>
+        <h2>A practice<br><em>for everyone</em><br>in the family.</h2>
+        <p style="font-size: 18px; line-height: 1.7; color: #555; margin-top: 44px; max-width: 480px;">From a child&rsquo;s first visit to the kind of cosmetic work you only trust to someone you know &mdash; every treatment, tailored. Every patient, remembered.</p>
+      </div>
+      <div style="aspect-ratio: 4/5; overflow: hidden; background: var(--paper); position: relative;">
+        <img src="./src/hero-3.jpg" style="width:100%; height:100%; object-fit:cover; filter: contrast(1.05) saturate(1.1);" alt="DeLaet Dentistry">
+        <div style="position:absolute; bottom:24px; left:24px; color:white; font-family: var(--serif); font-style:italic; font-size:18px; font-weight:300; z-index:2;">Where you&rsquo;ll feel at home.</div>
+        <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%); pointer-events:none;"></div>
+      </div>
     </div>
-    <p class="section-head-sub reveal">From a child&rsquo;s first visit to the kind of cosmetic work you only trust to someone you know &mdash; every treatment, tailored. Every patient, remembered.</p>
 
     <div class="services" style="margin-top: 100px;">
       <a onclick="showPage('services')" class="service reveal">
@@ -1578,10 +1597,30 @@ footer {
   </div>
 
 
+
+  <!-- Message Us (Mock Form) -->
+  <section>
+    <div class="section-head reveal">
+      <div class="section-number">02 &mdash; Message Us</div>
+      <div><h2>Have a quick<br><em>question?</em></h2></div>
+    </div>
+    <p class="section-head-sub reveal">For general questions, feedback, or anything that doesn&rsquo;t need an immediate answer. For appointments, please call &mdash; we prefer to speak with you directly.</p>
+
+    <form class="contact-form reveal" style="max-width: 760px; margin: 80px auto 0;" onsubmit="event.preventDefault(); alert('Thanks! Form submissions coming soon. For now, please call (513) 741-8223.');">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+        <div class="form-field"><label>Your name</label><input type="text" placeholder="Jane Smith" required></div>
+        <div class="form-field"><label>Your email</label><input type="email" placeholder="jane@email.com" required></div>
+      </div>
+      <div class="form-field"><label>What&rsquo;s on your mind?</label><textarea rows="5" placeholder="Tell us how we can help&hellip;" required></textarea></div>
+      <button type="submit" class="form-submit">Send message &rarr;</button>
+      <p class="form-note">Form submissions coming soon. For now, please call <strong style="color:var(--teal-deep);">(513) 741-8223</strong>.</p>
+    </form>
+  </section>
+
   <!-- Patient Resources -->
   <section style="padding-top: 60px;">
     <div class="section-head reveal">
-      <div class="section-number">02 &mdash; Patient Resources</div>
+      <div class="section-number">03 &mdash; Patient Resources</div>
       <div><h2>Forms &amp;<br><em>information.</em></h2></div>
     </div>
     <p class="section-head-sub reveal">Everything you&rsquo;ll need for your first visit &mdash; download, print, bring. All forms open in a new tab.</p>
@@ -1670,7 +1709,7 @@ const sectionMap = {
   about:    [['top','About'],['top','Our Story'],['top','Meet Dr.'],['top','Awards'],['top','Team']],
   services: [['top','Overview'],['top','Preventive'],['top','Cosmetic'],['top','Restorative'],['top','Family']],
   finances: [['top','Overview'],['top','Pay Bill'],['top','Insurance'],['top','Financing']],
-  contact:  [['top','Say Hello'],['top','Contact'],['top','Resources']]
+  contact:  [['top','Say Hello'],['top','Contact'],['top','Message Us'],['top','Resources']]
 };
 
 function showPage(name) {
