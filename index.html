@@ -873,6 +873,50 @@ section {
   line-height: 1.6;
 }
 
+
+/* TEAM GROUPS */
+.team-section-group { margin-bottom: 72px; }
+.team-section-group:last-child { margin-bottom: 0; }
+.team-section-label {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  font-weight: 600;
+  margin-bottom: 36px;
+  position: relative;
+}
+.team-section-label::before,
+.team-section-label::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--teal);
+  opacity: 0.4;
+  vertical-align: middle;
+  margin: 0 20px;
+}
+.team-row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 240px);
+  gap: 60px;
+  justify-content: center;
+}
+.team-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 240px);
+  gap: 48px;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .team-row-2, .team-row-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
 /* ═══ FOOTER ═══ */
 footer {
   background: var(--cream);
@@ -1316,9 +1360,32 @@ footer {
     </div>
     <p class="section-head-sub reveal">From the moment you walk in to the moment you leave, our team is committed to making every visit feel comfortable, personal, and welcoming.</p>
 
-    <div class="team-grid" style="margin-top: 80px;" id="teamGrid"></div>
+    <div style="margin-top: 80px;" id="teamSection">
+      <div class="team-section-group">
+        <div class="team-section-label">Front Office</div>
+        <div class="team-row-2">
+          <div class="team-member reveal"><div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="#5bbfbf" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="team-name">Jenny</div><div class="team-role">Office Coordinator</div></div>
+          <div class="team-member reveal"><div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="#5bbfbf" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="team-name">Colleen</div><div class="team-role">Patient Coordinator</div></div>
+        </div>
+      </div>
+      <div class="team-section-group">
+        <div class="team-section-label">Dental Hygiene</div>
+        <div class="team-row-3">
+          <div class="team-member reveal"><div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="#5bbfbf" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="team-name">Devon</div><div class="team-role">Dental Hygienist</div></div>
+          <div class="team-member reveal"><div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="#5bbfbf" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="team-name">Kennady</div><div class="team-role">Dental Hygienist</div></div>
+          <div class="team-member reveal"><div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="#5bbfbf" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="team-name">Anya</div><div class="team-role">Dental Hygienist</div></div>
+        </div>
+      </div>
+      <div class="team-section-group">
+        <div class="team-section-label">Dental Assisting</div>
+        <div class="team-row-2">
+          <div class="team-member reveal"><div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="#5bbfbf" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="team-name">Mary</div><div class="team-role">Dental Assistant</div></div>
+          <div class="team-member reveal"><div class="team-photo"><svg viewBox="0 0 24 24" fill="none" stroke="#5bbfbf" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div class="team-name">Jess</div><div class="team-role">Expanded Function Dental Assistant</div></div>
+        </div>
+      </div>
+    </div>
     <div style="text-align:center;margin-top:60px;">
-      <p style="font-size:12px;color:#999;font-style:italic;font-family:var(--serif);">Team photos and names coming soon.</p>
+      <p style="font-size:12px;color:#999;font-style:italic;font-family:var(--serif);">Team photos coming soon.</p>
     </div>
   </section>
 
@@ -1783,28 +1850,7 @@ document.querySelectorAll('.hero-right').forEach(heroRight => {
 });
 
 // ═══ TEAM PLACEHOLDERS ═══
-const teamData = [
-  { role: 'Practice Coordinator', detail: 'Front office &middot; patient care' },
-  { role: 'Practice Coordinator', detail: 'Insurance &amp; scheduling' },
-  { role: 'Registered Dental Hygienist', detail: 'Preventive care' },
-  { role: 'Registered Dental Hygienist', detail: 'Preventive care' },
-  { role: 'Dental Assistant', detail: 'Clinical support' },
-  { role: 'Dental Assistant', detail: 'Clinical support' }
-];
-const teamGrid = document.getElementById('teamGrid');
-if (teamGrid) {
-  teamGrid.innerHTML = teamData.map(m => `
-    <div class="team-member reveal">
-      <div class="team-photo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#5bbfbf" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </div>
-      <div class="team-name">Team Member</div>
-      <div class="team-role">${m.role}</div>
-      <div class="team-detail">${m.detail}</div>
-    </div>
-  `).join('');
-  teamGrid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
+// Team is hardcoded in About page
 
 // Initial render
 renderProgressRail('home');
