@@ -917,6 +917,35 @@ section {
   }
 }
 
+
+/* IMAGE SPLIT LAYOUTS */
+.img-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 60px;
+}
+.img-split.reverse .is-text { order: 2; }
+.img-split.reverse .is-img { order: 1; }
+.img-split .is-text { max-width: 560px; }
+.img-split .is-text .section-head { grid-template-columns: 1fr; gap: 0; margin-bottom: 32px; display: block; }
+.img-split .is-text .section-number { padding-top: 0; margin-bottom: 16px; }
+.img-split .is-text .section-number::before { display: none; }
+.img-split .is-text h2 { font-size: 54px; line-height: 1.0; letter-spacing: -2px; margin-top: 8px; }
+.img-split .is-text p.lead { font-family: var(--serif); font-weight: 300; font-size: 24px; line-height: 1.45; color: var(--ink); letter-spacing: -0.3px; margin-top: 32px; margin-bottom: 24px; }
+.img-split .is-text p { font-size: 16px; line-height: 1.75; color: #333; margin-bottom: 18px; }
+.img-split .is-img { aspect-ratio: 4/5; overflow: hidden; background: var(--paper); position: relative; }
+.img-split .is-img img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.04) saturate(1.08); }
+@media (max-width: 1024px) {
+  .img-split { grid-template-columns: 1fr; gap: 40px; padding: 60px 32px; }
+  .img-split.reverse .is-text { order: 2; }
+  .img-split.reverse .is-img { order: 1; }
+  .img-split .is-text h2 { font-size: 40px; }
+}
+
 /* ═══ FOOTER ═══ */
 footer {
   background: var(--cream);
@@ -1262,18 +1291,19 @@ footer {
   </div>
 
   <!-- Our Story -->
-  <section>
-    <div class="section-head reveal">
-      <div class="section-number">01 &mdash; Our Story</div>
-      <div><h2>A White Oak staple<br><em>since 1979.</em></h2></div>
-    </div>
-    <div class="editorial reveal" style="padding: 0;">
+  <div class="img-split reveal">
+    <div class="is-text">
+      <div class="section-head">
+        <div class="section-number">01 &mdash; Our Story</div>
+        <h2>A White Oak staple<br><em>since 1979.</em></h2>
+      </div>
       <p class="lead">DeLaet Dentistry continues the legacy of Dr. Ken Brandt, DDS &mdash; who served this community for 45 years before transitioning into a well-earned retirement.</p>
       <p>This practice has been a staple in the White Oak community for decades, proudly serving families across White Oak, Groesbeck, Monfort Heights, Cheviot, Dent, North Bend, and all of western Cincinnati.</p>
-      <p>The practice has undergone recent renovations with a complete upgrade of the operating space and technology to give our patients the best experience possible. We are thrilled for the future growth of our practice and can&rsquo;t wait to share the journey with all our patients.</p>
-      <p>Our mission is simple: treat every patient as if they are an extension of our own family &mdash; so that they feel comfortable and valued. The most rewarding moments are when patients leave our office with a completely confident and proud smile on their faces.</p>
+      <p>The practice has undergone recent renovations with a complete upgrade of the operating space and technology to give our patients the best experience possible.</p>
+      <p>Our mission is simple: treat every patient as if they are an extension of our own family &mdash; so that they feel comfortable and valued.</p>
     </div>
-  </section>
+    <div class="is-img"><img src="./src/about-brand.jpg" alt="DeLaet Dentistry brand wall"></div>
+  </div>
 
   <!-- Mission quote -->
   <div class="pull-quote">
@@ -1421,73 +1451,63 @@ footer {
   </div>
 
   <!-- Preventive -->
-  <section>
-    <div class="section-head reveal">
-      <div class="section-number">01 &mdash; Preventive</div>
-      <div><h2>Maintaining<br><em>your best</em> smile.</h2></div>
-    </div>
-    <div class="editorial reveal" style="padding:0;">
+  <div class="img-split reveal">
+    <div class="is-text">
+      <div class="section-head"><div class="section-number">01 &mdash; Preventive</div><h2>Maintaining<br><em>your best</em> smile.</h2></div>
       <p class="lead">The best dental work is the kind you never need. We focus on prevention so small issues stay small &mdash; and your smile stays yours.</p>
       <p><strong>What&rsquo;s included:</strong> Routine cleanings, oral exams, digital X-rays, oral cancer screenings, fluoride treatments, sealants.</p>
       <p>Modern digital X-rays mean less radiation and clearer images. Combined with our iTero 3D scanner, we see things traditional checkups miss.</p>
     </div>
-  </section>
+    <div class="is-img"><img src="./src/svc-preventive.jpg" alt="Preventive care room"></div>
+  </div>
 
   <!-- Cosmetic -->
-  <section style="background: var(--cream); max-width: none; margin: 0; padding: 180px 60px;">
-    <div style="max-width:1500px;margin:0 auto;">
-      <div class="section-head reveal">
-        <div class="section-number">02 &mdash; Cosmetic</div>
-        <div><h2>Your best smile<br><em>awaits.</em></h2></div>
-      </div>
-      <div class="editorial reveal" style="padding:0;">
-        <p class="lead">Cosmetic dentistry is about more than teeth &mdash; it&rsquo;s about confidence. The way you smile in photos. The way you feel in a job interview. The way you catch yourself in the mirror.</p>
+  <div style="background: var(--cream);">
+    <div class="img-split reveal reverse" style="padding: 100px 60px;">
+      <div class="is-text">
+        <div class="section-head"><div class="section-number">02 &mdash; Cosmetic</div><h2>Your best smile<br><em>awaits.</em></h2></div>
+        <p class="lead">Cosmetic dentistry is about more than teeth &mdash; it&rsquo;s about confidence. The way you smile in photos, the way you feel in a job interview, the way you catch yourself in the mirror.</p>
         <p><strong>What&rsquo;s included:</strong> Teeth whitening, porcelain veneers, cosmetic bonding, full smile makeovers.</p>
         <p>Every cosmetic case begins with a conversation. We want to understand what you&rsquo;re hoping for before we discuss what&rsquo;s possible.</p>
       </div>
+      <div class="is-img"><img src="./src/svc-cosmetic.jpg" alt="Cosmetic treatment room"></div>
     </div>
-  </section>
+  </div>
 
   <!-- Restorative -->
-  <section>
-    <div class="section-head reveal">
-      <div class="section-number">03 &mdash; Restorative</div>
-      <div><h2>Restoring<br><em>function</em> &amp; beauty.</h2></div>
-    </div>
-    <div class="editorial reveal" style="padding:0;">
+  <div class="img-split reveal">
+    <div class="is-text">
+      <div class="section-head"><div class="section-number">03 &mdash; Restorative</div><h2>Restoring<br><em>function</em> &amp; beauty.</h2></div>
       <p class="lead">When teeth are damaged, broken, or missing, we rebuild them &mdash; so you can eat, speak, and smile without a second thought.</p>
       <p><strong>What&rsquo;s included:</strong> Fillings, crowns, bridges, partial and full dentures, root canal therapy, extractions.</p>
       <p>We use materials that match your natural tooth color and techniques that minimize discomfort. Modern restorative dentistry is almost invisible.</p>
     </div>
-  </section>
+    <div class="is-img"><img src="./src/svc-restorative.jpg" alt="Restorative treatment room"></div>
+  </div>
 
   <!-- Orthodontics -->
-  <section style="background: var(--cream); max-width: none; margin: 0; padding: 180px 60px;">
-    <div style="max-width:1500px;margin:0 auto;">
-      <div class="section-head reveal">
-        <div class="section-number">04 &mdash; Orthodontics</div>
-        <div><h2>A straighter smile,<br><em>on your terms.</em></h2></div>
-      </div>
-      <div class="editorial reveal" style="padding:0;">
+  <div style="background: var(--cream);">
+    <div class="img-split reveal reverse" style="padding: 100px 60px;">
+      <div class="is-text">
+        <div class="section-head"><div class="section-number">04 &mdash; Orthodontics</div><h2>A straighter smile,<br><em>on your terms.</em></h2></div>
         <p class="lead">Invisalign gives you the smile you want without a mouth full of metal. Clear aligners, custom-made, worn on your schedule.</p>
         <p><strong>What&rsquo;s included:</strong> Full Invisalign treatment planning, aligner fabrication and fittings, progress monitoring, retainers.</p>
         <p>Dr. DeLaet is a Certified Invisalign Provider. Treatment typically takes 6&ndash;18 months depending on your case.</p>
       </div>
+      <div class="is-img"><img src="./src/svc-ortho.jpg" alt="Orthodontics consultation space"></div>
     </div>
-  </section>
+  </div>
 
   <!-- Family -->
-  <section>
-    <div class="section-head reveal">
-      <div class="section-number">05 &mdash; Family</div>
-      <div><h2>Care for<br><em>every</em> stage of life.</h2></div>
-    </div>
-    <div class="editorial reveal" style="padding:0;">
+  <div class="img-split reveal">
+    <div class="is-text">
+      <div class="section-head"><div class="section-number">05 &mdash; Family</div><h2>Care for<br><em>every</em> stage of life.</h2></div>
       <p class="lead">We take care of entire families &mdash; your kids, your parents, your grandparents. One practice. Every generation.</p>
       <p><strong>What&rsquo;s included:</strong> Pediatric dentistry, teen Invisalign, adult preventive and restorative care, senior dental care.</p>
       <p>Kids&rsquo; first visits are gentle and friendly. We take the time to make the dentist feel like a safe place &mdash; because it is.</p>
     </div>
-  </section>
+    <div class="is-img"><img src="./src/svc-family.jpg" alt="Welcoming family lobby"></div>
+  </div>
 
   <!-- Technology -->
   <div class="pull-quote" style="padding: 180px 60px;">
@@ -1617,7 +1637,7 @@ footer {
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-image-frame"><img src="./src/hero-2.jpg" alt="DeLaet Dentistry — 7601 Cheviot Rd"></div>
+      <div class="hero-image-frame"><img src="./src/exterior-full.jpg" alt="DeLaet Dentistry — 7601 Cheviot Rd, White Oak"></div>
     </div>
   </div>
 
