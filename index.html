@@ -63,6 +63,7 @@
   --teal-deep: #277878;
   --charcoal: #1c1c1c;
   --ink: #0f0f0f;
+  --letterbox: #1e252f;
   --cream: #faf7f2;
   --paper: #f5f1ea;
   --mute: #666;
@@ -336,7 +337,7 @@ nav {
 .hero-right {
   position: relative;
   overflow: hidden;
-  background: var(--cream);
+  background: var(--letterbox);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -352,7 +353,7 @@ nav {
 .hero-image-frame img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   filter: contrast(1.05) saturate(1.08);
 }
@@ -595,16 +596,16 @@ section {
 /* ═══ GALLERY ═══ */
 .gallery-strip { display: grid; grid-template-columns: repeat(4, 1fr); }
 .gallery-item {
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/3;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  background: var(--cream);
+  background: var(--letterbox);
 }
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: all 1s cubic-bezier(0.2,0,0,1);
   filter: contrast(1.05) saturate(1.1);
 }
@@ -640,13 +641,12 @@ section {
 .meet-img {
   aspect-ratio: 4/5;
   overflow: hidden;
-  background: var(--paper);
+  background: var(--letterbox);
 }
 .meet-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
   filter: contrast(1.08) saturate(1.1);
 }
 .meet-link {
@@ -1051,7 +1051,6 @@ section {
 
 /* HERO SCROLL PARALLAX */
 .hero-image-frame img {
-  transform: scale(1.15);
   transform-origin: center;
   will-change: transform;
 }
@@ -1066,7 +1065,7 @@ section {
   }
   .signature { clip-path: none !important; animation: none !important; }
   #cursor-flourish { display: none !important; }
-  .hero-image-frame img { transform: scale(1) !important; }
+  .hero-image-frame img { transform: none !important; }
   body::before { opacity: 0 !important; }
 }
 
@@ -1095,8 +1094,8 @@ section + .pull-quote,
 .img-split .is-text h2 { font-size: 54px; line-height: 1.0; letter-spacing: -2px; margin-top: 8px; }
 .img-split .is-text p.lead { font-family: var(--serif); font-weight: 300; font-size: 24px; line-height: 1.45; color: var(--ink); letter-spacing: -0.3px; margin-top: 32px; margin-bottom: 24px; }
 .img-split .is-text p { font-size: 16px; line-height: 1.75; color: #333; margin-bottom: 18px; }
-.img-split .is-img { aspect-ratio: 4/5; overflow: hidden; background: var(--paper); position: relative; }
-.img-split .is-img img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.04) saturate(1.08); }
+.img-split .is-img { aspect-ratio: 4/5; overflow: hidden; background: var(--letterbox); position: relative; }
+.img-split .is-img img { width: 100%; height: 100%; object-fit: contain; filter: contrast(1.04) saturate(1.08); }
 @media (max-width: 1024px) {
   .img-split { grid-template-columns: 1fr; gap: 40px; padding: 60px 32px; }
   .img-split.reverse .is-text { order: 2; }
@@ -2180,16 +2179,16 @@ if (flourish && window.matchMedia('(min-width: 1025px)').matches && !window.matc
   });
 }
 
-// Hero scroll parallax (across all pages)
+// Hero scroll parallax - subtle, no zoom (image stays uncropped)
 let scrollTick = false;
 window.addEventListener('scroll', () => {
   if (scrollTick) return;
   scrollTick = true;
   requestAnimationFrame(() => {
-    const scrollY = Math.min(window.scrollY, 1000);
+    const scrollY = Math.min(window.scrollY, 600);
     const img = document.querySelector('.page.active .hero-image-frame img');
     if (img && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      img.style.transform = `translate3d(0, ${scrollY * 0.15}px, 0) scale(1.15)`;
+      img.style.transform = `translate3d(0, ${scrollY * 0.08}px, 0)`;
     }
     scrollTick = false;
   });
