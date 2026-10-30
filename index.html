@@ -919,6 +919,82 @@ section {
 
 
 
+
+/* GOOGLE REVIEWS SECTION */
+.reviews-section {
+  padding: 140px 60px;
+  background: var(--cream);
+  border-top: 1px solid rgba(91,191,191,0.4);
+  border-bottom: 1px solid rgba(91,191,191,0.4);
+}
+.reviews-inner { max-width: 1400px; margin: 0 auto; }
+.reviews-head { text-align: center; margin-bottom: 64px; }
+.reviews-head .eyebrow { justify-content: center; margin-bottom: 24px; }
+.reviews-head h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 56px;
+  letter-spacing: -1.5px;
+  color: var(--ink);
+  line-height: 1.0;
+  margin-bottom: 24px;
+}
+.reviews-head h2 em { font-style: italic; color: var(--teal-deep); font-weight: 400; }
+.reviews-head p { font-size: 17px; color: #555; max-width: 580px; margin: 0 auto; line-height: 1.7; }
+#elfsight-reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+.review-placeholder {
+  background: #ffffff;
+  padding: 36px 32px;
+  border: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.2,0,0,1);
+}
+.review-placeholder:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  border-color: rgba(91,191,191,0.4);
+}
+.review-stars {
+  color: #ffb400;
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+.review-text {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--ink);
+  letter-spacing: -0.2px;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.review-author {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+}
+.reviews-cta { text-align: center; margin-top: 56px; }
+@media (max-width: 1024px) {
+  .reviews-section { padding: 100px 32px; }
+  .reviews-head h2 { font-size: 42px; }
+  #elfsight-reviews { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 640px) {
+  .reviews-section { padding: 70px 20px; }
+  .reviews-head h2 { font-size: 32px; letter-spacing: -1px; }
+  .review-text { font-size: 16px; }
+}
+
 /* BACK TO TOP BUTTON */
 #back-to-top {
   position: fixed;
@@ -1305,6 +1381,45 @@ footer {
       <div class="trust-label">Certified Provider</div>
     </div>
   </div>
+
+
+  <!-- Google Reviews -->
+  <section class="reviews-section" id="reviews-home">
+    <div class="reviews-inner">
+      <div class="reviews-head reveal">
+        <div class="eyebrow">
+          <span class="num">02</span>
+          <span class="rule"></span>
+          <span>What Patients Say</span>
+        </div>
+        <h2>400+ five-star<br><em>reasons to smile.</em></h2>
+        <p>Our patients speak for themselves. Hear what the White Oak community has to say about Dr. DeLaet and the DeLaet Dentistry team.</p>
+      </div>
+
+      <!-- Elfsight Google Reviews widget placeholder (replace this div's contents with embed code) -->
+      <div id="elfsight-reviews" class="reveal">
+        <div class="review-placeholder">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;Dr. DeLaet and his team are incredibly welcoming. I&rsquo;ve been coming here for years and the care has always been top-notch.&rdquo;</p>
+          <div class="review-author">&mdash; Google review</div>
+        </div>
+        <div class="review-placeholder">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;Finally a dentist who actually listens. The new office is beautiful and the staff makes you feel right at home.&rdquo;</p>
+          <div class="review-author">&mdash; Google review</div>
+        </div>
+        <div class="review-placeholder">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">&ldquo;My whole family comes here. Great with kids, honest about what you need, and never pushes unnecessary work.&rdquo;</p>
+          <div class="review-author">&mdash; Google review</div>
+        </div>
+      </div>
+
+      <div class="reviews-cta reveal">
+        <a href="https://www.google.com/search?q=DeLaet+Dentistry+White+Oak+Cincinnati+reviews" target="_blank" rel="noopener" class="meet-link">Read all 400+ Google reviews &rarr;</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Services -->
   <section id="services-home">
