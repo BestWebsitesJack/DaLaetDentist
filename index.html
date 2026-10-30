@@ -1421,8 +1421,208 @@ footer {
   </section>
 
   <!-- Services -->
+  <section id="services-home">
+    <div class="section-head reveal" style="grid-template-columns: 160px 1.1fr 1fr; gap: 60px; align-items: start;">
+      <div class="section-number">01 &mdash; What We Do</div>
+      <div>
+        <h2>A practice<br><em>for everyone</em><br>in the family.</h2>
+        <p style="font-size: 18px; line-height: 1.7; color: #555; margin-top: 44px; max-width: 480px;">From a child&rsquo;s first visit to the kind of cosmetic work you only trust to someone you know &mdash; every treatment, tailored. Every patient, remembered.</p>
+      </div>
+      <div style="aspect-ratio: 4/5; overflow: hidden; background: var(--paper); position: relative;">
+        <img loading="lazy" src="./src/hero-3.jpg" style="width:100%; height:100%; object-fit:cover; filter: contrast(1.05) saturate(1.1);" alt="DeLaet Dentistry">
+        <div style="position:absolute; bottom:24px; left:24px; color:white; font-family: var(--serif); font-style:italic; font-size:18px; font-weight:300; z-index:2;">Where you&rsquo;ll feel at home.</div>
+        <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%); pointer-events:none;"></div>
+      </div>
+    </div>
 
-      <!-- Our Space -->
+    <div class="services" style="margin-top: 100px;">
+      <a onclick="showPage('services')" class="service reveal">
+        <div class="service-num">01</div>
+        <div class="service-content">
+          <h3>Preventive Care</h3>
+          <p>Cleanings, exams, digital X&#8209;rays. The quiet, consistent work that makes everything else unnecessary.</p>
+        </div>
+        <div class="service-arrow">&rarr;</div>
+      </a>
+      <a onclick="showPage('services')" class="service reveal">
+        <div class="service-num">02</div>
+        <div class="service-content">
+          <h3>Cosmetic Dentistry</h3>
+          <p>Whitening, veneers, makeovers. The smile you were born to wear &mdash; just a little closer to the surface.</p>
+        </div>
+        <div class="service-arrow">&rarr;</div>
+      </a>
+      <a onclick="showPage('services')" class="service reveal">
+        <div class="service-num">03</div>
+        <div class="service-content">
+          <h3>Restorative</h3>
+          <p>Fillings, crowns, bridges, dentures. Fixing what&rsquo;s broken so you can forget it ever was.</p>
+        </div>
+        <div class="service-arrow">&rarr;</div>
+      </a>
+      <a onclick="showPage('services')" class="service reveal">
+        <div class="service-num">04</div>
+        <div class="service-content">
+          <h3>Orthodontics</h3>
+          <p>Invisalign clear aligners. Straighter teeth, no metal, no announcement to the world.</p>
+        </div>
+        <div class="service-arrow">&rarr;</div>
+      </a>
+      <a onclick="showPage('services')" class="service reveal">
+        <div class="service-num">05</div>
+        <div class="service-content">
+          <h3>Family Dentistry</h3>
+          <p>Grandparents, parents, kids. One office. One practice. One doctor who remembers all your names.</p>
+        </div>
+        <div class="service-arrow">&rarr;</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Pull quote -->
+  <div class="pull-quote" id="quote-home">
+    <blockquote>Every patient and every case is <em>different</em> &mdash;<br>and we treat them that way.</blockquote>
+    <cite>
+      <span class="name">Dr. Tyler DeLaet, DMD</span>
+      <span class="title">White Oak Native &middot; University of Louisville</span>
+    </cite>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery-strip" id="space-home">
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-1.jpg"><div class="gallery-caption">The front door</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-2.jpg"><div class="gallery-caption">Where you&rsquo;ll walk in</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-3.jpg"><div class="gallery-caption">Where you&rsquo;ll wait</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-4.jpg"><div class="gallery-caption">Where the magic happens</div></div>
+  </div>
+
+  <!-- Meet Dr. -->
+  <div class="meet-section" id="meet-home">
+    <div class="meet-img reveal"><img loading="lazy" src="./src/dr-delaet.jpg" alt="Dr. Tyler DeLaet, DMD"></div>
+    <div class="reveal">
+      <div class="eyebrow"><span class="num">02</span><span class="rule"></span><span>The Doctor</span></div>
+      <h2 style="font-family:var(--serif);font-weight:300;font-size:60px;line-height:1.0;letter-spacing:-2px;color:var(--ink);margin-bottom:36px;">
+        Born here.<br>Trained. <em style="font-style:italic;color:var(--teal-deep);">Came&nbsp;home.</em>
+      </h2>
+      <p style="font-size:17px;line-height:1.75;color:#444;margin-bottom:24px;max-width:520px;">
+        La Salle High School. Then UC for undergrad &mdash; and again for his master&rsquo;s. Then Louisville for the DMD. Then Harrison, Ohio for the start of his career.
+      </p>
+      <p style="font-size:17px;line-height:1.75;color:#444;margin-bottom:40px;max-width:520px;">
+        And then, finally, back to White Oak &mdash; where he grew up, and where he bought Dr. Ken Brandt&rsquo;s 45&#8209;year practice.
+      </p>
+      <a onclick="showPage('about')" class="meet-link">Keep reading &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Before/After -->
+  <div class="pull-quote" style="padding: 120px 60px; background: var(--paper); color: var(--ink);">
+    <div style="font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal-deep);font-weight:600;margin-bottom:16px;">Treatment Results</div>
+    <blockquote style="color:var(--ink);font-size:38px;">A smile transformation.<br><em>Case 01.</em></blockquote>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:900px;margin:60px auto 0;">
+      <div style="aspect-ratio:1;overflow:hidden;position:relative;">
+        <img loading="lazy" src="./src/before-01.jpg" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05);">
+        <div style="position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.6);color:white;padding:6px 14px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">Before</div>
+      </div>
+      <div style="aspect-ratio:1;overflow:hidden;position:relative;">
+        <img loading="lazy" src="./src/after-01.jpg" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05);">
+        <div style="position:absolute;bottom:16px;left:16px;background:var(--teal-deep);color:white;padding:6px 14px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">After</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- ═══ END HOME ═══ -->
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ═══ PAGE: ABOUT ═══════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="page-about" class="page">
+
+  <div class="hero">
+    <div class="hero-left">
+      <div class="eyebrow fade-in d1">
+        <span class="num">02</span>
+        <span class="rule"></span>
+        <span>About the Practice</span>
+      </div>
+      <h1 class="fade-in d2">
+        A practice<br>built on<br><em>community.</em>
+      </h1>
+      <p class="hero-sub fade-in d3">
+        DeLaet Dentistry may be a new name to some, but this practice has a long and successful history serving White Oak for over 45 years.
+      </p>
+      <div class="signature-block fade-in d4">
+        <span class="signature">Tyler DeLaet</span>
+        <span class="signature-label">Est. 1979 &middot; Reimagined 2024</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-frame"><img src="./src/dr-delaet.jpg" alt="Dr. Tyler DeLaet"></div>
+    </div>
+  </div>
+
+  <!-- Our Story -->
+  <div class="img-split reveal">
+    <div class="is-text">
+      <div class="section-head">
+        <div class="section-number">01 &mdash; Our Story</div>
+        <h2>A White Oak staple<br><em>since 1979.</em></h2>
+      </div>
+      <p class="lead">DeLaet Dentistry continues the legacy of Dr. Ken Brandt, DDS &mdash; who served this community for 45 years before transitioning into a well-earned retirement.</p>
+      <p>This practice has been a staple in the White Oak community for decades, proudly serving families across White Oak, Groesbeck, Monfort Heights, Cheviot, Dent, North Bend, and all of western Cincinnati.</p>
+      <p>The practice has undergone recent renovations with a complete upgrade of the operating space and technology to give our patients the best experience possible.</p>
+      <p>Our mission is simple: treat every patient as if they are an extension of our own family &mdash; so that they feel comfortable and valued.</p>
+    </div>
+    <div class="is-img"><img loading="lazy" src="./src/about-brand.jpg" alt="DeLaet Dentistry brand wall"></div>
+  </div>
+
+  <!-- Mission quote -->
+  <div class="pull-quote">
+    <blockquote>We strive to provide exceptional dental care while building a positive patient-doctor relationship based on mutual trust, excellent customer service, and <em>personalized care.</em></blockquote>
+    <cite>
+      <span class="name">Dr. Tyler DeLaet, DMD</span>
+      <span class="title">DeLaet Dentistry</span>
+    </cite>
+  </div>
+
+  <!-- Meet Dr -->
+  <section>
+    <div class="section-head reveal">
+      <div class="section-number">02 &mdash; Meet Dr. DeLaet</div>
+      <div><h2>Dr. Tyler (TJ)<br>DeLaet, <em>DMD</em></h2></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:80px;align-items:start;margin-top:40px;" class="reveal">
+      <div>
+        <p style="font-size:17px;line-height:1.85;color:#333;margin-bottom:24px;">
+          Dr. Tyler (TJ) DeLaet, DMD was born and raised in the White Oak area of Cincinnati. He graduated from La Salle High School (2010) and began his collegiate studies at the University of Cincinnati &mdash; earning his B.S. in Health Sciences (2014) and M.S. in Biological Sciences (2015).
+        </p>
+        <p style="font-size:17px;line-height:1.85;color:#333;margin-bottom:24px;">
+          Following his studies at the University of Cincinnati, Dr. DeLaet went on to the University of Louisville School of Dentistry, where he earned his Doctorate of Dental Medicine (DMD) in 2019.
+        </p>
+        <p style="font-size:17px;line-height:1.85;color:#333;margin-bottom:24px;">
+          Dr. DeLaet has always dreamed of owning his own dental practice in his hometown and serving the local community of White Oak. After graduating from dental school, he moved back to Cincinnati and began his dental career practicing in Harrison, OH. Eventually the opportunity presented itself to purchase this successful and well-respected practice from Dr. Ken Brandt, DDS.
+        </p>
+        <p style="font-size:17px;line-height:1.85;color:#333;margin-bottom:36px;">
+          Dr. DeLaet is a member of the American Dental Association. In his leisure time he enjoys playing golf, training local baseball players with his dad, and being an avid Cincinnati sports fan.
+        </p>
+        <a onclick="showPage('contact')" class="meet-link">Say hello &rarr;</a>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal-deep);font-weight:600;margin-bottom:24px;">Credentials</div>
+        <ul class="cred-list">
+          <li><span class="year">2010</span><span class="cred">La Salle High School, Cincinnati</span></li>
+          <li><span class="year">2014</span><span class="cred">B.S. Health Sciences<br>Univ. of Cincinnati</span></li>
+          <li><span class="year">2015</span><span class="cred">M.S. Biological Sciences<br>Univ. of Cincinnati</span></li>
+          <li><span class="year">2019</span><span class="cred">DMD<br>Univ. of Louisville School of Dentistry</span></li>
+          <li><span class="year">&mdash;</span><span class="cred">American Dental Association</span></li>
+          <li><span class="year">&mdash;</span><span class="cred">Invisalign Certified Provider</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Space -->
   <section style="padding-top: 60px;">
     <div class="section-head reveal">
       <div class="section-number">03 &mdash; Our Space</div>
@@ -1863,7 +2063,7 @@ const pageMeta = {
 };
 
 const sectionMap = {
-  home:     [['top','Home'],['services-home','Services'],['quote-home','Promise'],['space-home','Our Space']],
+  home:     [['top','Home'],['services-home','Services'],['quote-home','Promise'],['space-home','Our Space'],['meet-home','The Doctor']],
   about:    [['top','About'],['top','Our Story'],['top','Meet Dr.'],['top','Awards'],['top','Team']],
   services: [['top','Overview'],['top','Preventive'],['top','Cosmetic'],['top','Restorative'],['top','Family']],
   finances: [['top','Overview'],['top','Pay Bill'],['top','Insurance'],['top','Financing']],
