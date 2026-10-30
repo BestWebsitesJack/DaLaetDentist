@@ -2183,14 +2183,6 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-
-if (next) next.addEventListener('click', () => { go(idx + 1); startAuto(); });
-  dots.forEach((d, i) => d.addEventListener('click', () => { go(i); startAuto(); }));
-  carousel.addEventListener('mouseenter', stopAuto);
-  carousel.addEventListener('mouseleave', startAuto);
-  startAuto();
-});
-
 </script>
 
 <!-- Back to Top button -->
