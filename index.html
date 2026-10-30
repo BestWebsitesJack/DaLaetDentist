@@ -922,12 +922,13 @@ section {
 .img-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 100px;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 60px 60px;
+  padding: 140px 60px;
 }
+.img-split + .img-split { border-top: 1px solid var(--rule); }
 .img-split.reverse .is-text { order: 2; }
 .img-split.reverse .is-img { order: 1; }
 .img-split .is-text { max-width: 560px; }
@@ -1043,27 +1044,102 @@ footer {
 .d5 { animation-delay: 0.7s; }
 
 /* ═══ RESPONSIVE ═══ */
+/* TABLET (iPad, large tablets) */
 @media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
+  nav { padding: 14px 24px; }
+  .nav-logo img { height: 56px; }
+  .nav-links { display: none; }
+  .nav-phone { font-size: 15px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 90px; }
   .hero-left { padding: 60px 32px; }
-  .hero h1 { font-size: 72px; letter-spacing: -2px; }
-  .hero-right { min-height: 500px; }
-  .trust-bar { grid-template-columns: repeat(2, 1fr); gap: 48px 24px; }
-  .trust-item:nth-child(2)::before { display: none; }
+  .hero h1 { font-size: 78px; letter-spacing: -2px; }
+  .hero-sub { font-size: 16px; }
+  .hero-right { min-height: 460px; }
+  .signature { font-size: 48px; }
+  .trust-bar { grid-template-columns: repeat(2, 1fr); gap: 48px 24px; padding: 56px 32px; }
+  .trust-item:nth-child(2)::before, .trust-item:nth-child(4)::before { display: none; }
+  .trust-number { font-size: 44px; }
   section { padding: 100px 32px; }
-  .section-head { grid-template-columns: 1fr; gap: 24px; }
-  .section-head h2 { font-size: 48px; }
-  .pull-quote blockquote { font-size: 32px; }
+  .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+  .section-head h2 { font-size: 48px; letter-spacing: -1.5px; }
+  .pull-quote { padding: 100px 32px; }
+  .pull-quote blockquote { font-size: 32px; letter-spacing: -0.8px; }
   .gallery-strip { grid-template-columns: repeat(2, 1fr); }
   .meet-section { grid-template-columns: 1fr; gap: 48px; padding: 100px 32px; }
   .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .contact-grid { grid-template-columns: 1fr; gap: 0; padding: 0 32px; }
+  .contact-value { font-size: 32px; }
   .awards-list { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .team-row-2, .team-row-3 { grid-template-columns: repeat(2, 220px); gap: 32px; }
   .progress-rail { display: none; }
-  nav { padding: 12px 20px; }
-  .nav-links { display: none; }
-  .fin-row { grid-template-columns: 1fr; gap: 24px; }
+  .fin-row { grid-template-columns: 1fr; gap: 24px; padding: 60px 0; }
+  .fin-title { font-size: 36px; }
+  .service { grid-template-columns: 60px 1fr 40px; gap: 24px; padding: 32px 0; }
+  .service-content h3 { font-size: 30px; }
+  .img-split { grid-template-columns: 1fr; gap: 48px; padding: 100px 32px; }
+  .img-split.reverse .is-text { order: 2; }
+  .img-split.reverse .is-img { order: 1; }
+  .img-split .is-text h2 { font-size: 44px; }
+  .img-split .is-text p.lead { font-size: 22px; }
+  .img-split .is-img { aspect-ratio: 4/3; max-height: 480px; }
+  .meet { grid-template-columns: 1fr; gap: 48px; padding: 100px 32px; }
+}
+
+/* PHONE (iPhone, small Android) */
+@media (max-width: 640px) {
+  body::before { opacity: 0.015; }
+  nav { padding: 10px 16px; }
+  .nav-logo img { height: 44px; }
+  .nav-phone { font-size: 13px; }
+  .hero-left { padding: 40px 20px; }
+  .hero .eyebrow { font-size: 10px; margin-bottom: 24px; }
+  .hero h1 { font-size: 52px; letter-spacing: -1.5px; margin-bottom: 24px; }
+  .hero-sub { font-size: 15px; margin-bottom: 32px; }
+  .signature { font-size: 40px; }
+  .hero-phone { font-size: 26px; }
+  .hero-right { min-height: 320px; }
+  .hero-badge { bottom: 20px; right: 20px; padding: 12px 16px; }
+  .hero-badge-bottom { font-size: 14px; }
+  .trust-bar { grid-template-columns: 1fr 1fr; gap: 32px 16px; padding: 40px 20px; }
+  .trust-item { padding-left: 20px; }
+  .trust-number { font-size: 36px; letter-spacing: -1px; }
+  .trust-text { font-size: 18px; }
+  .trust-label { font-size: 9px; }
+  section { padding: 80px 20px; }
+  .section-head h2 { font-size: 38px; letter-spacing: -1px; }
+  .section-head-sub { font-size: 16px; }
+  .pull-quote { padding: 80px 20px; }
+  .pull-quote::before { font-size: 120px; top: 30px; }
+  .pull-quote blockquote { font-size: 24px; line-height: 1.3; letter-spacing: -0.5px; }
+  .gallery-strip { grid-template-columns: 1fr; }
+  .gallery-item { aspect-ratio: 4/3; }
+  .meet-section { padding: 80px 20px; }
+  .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+  .foot-brand { font-size: 26px; }
+  .contact-value { font-size: 26px; }
+  .contact-grid { padding: 0 20px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-row-2, .team-row-3 { grid-template-columns: 1fr; gap: 24px; max-width: 240px; margin: 0 auto; }
+  .fin-title { font-size: 28px; letter-spacing: -0.8px; }
+  .service { grid-template-columns: 40px 1fr 32px; gap: 16px; padding: 24px 0; }
+  .service-num { font-size: 16px; }
+  .service-content h3 { font-size: 24px; letter-spacing: -0.5px; }
+  .service-content p { font-size: 14px; }
+  .img-split { padding: 70px 20px; gap: 32px; }
+  .img-split .is-text h2 { font-size: 34px; letter-spacing: -1px; }
+  .img-split .is-text p.lead { font-size: 18px; }
+  .img-split .is-text p { font-size: 15px; }
+  .img-split .is-img { aspect-ratio: 4/3; max-height: 360px; }
+  .meet { padding: 80px 20px; }
+}
+
+/* Fix cream-bg img-split padding at smaller sizes */
+@media (max-width: 1024px) {
+  .img-split.reverse[style*="padding"] { padding: 100px 32px !important; }
+}
+@media (max-width: 640px) {
+  .img-split.reverse[style*="padding"] { padding: 70px 20px !important; }
 }
 </style>
 </head>
@@ -1463,7 +1539,7 @@ footer {
 
   <!-- Cosmetic -->
   <div style="background: var(--cream);">
-    <div class="img-split reveal reverse" style="padding: 100px 60px;">
+    <div class="img-split reveal reverse" style="padding: 140px 60px;">
       <div class="is-text">
         <div class="section-head"><div class="section-number">02 &mdash; Cosmetic</div><h2>Your best smile<br><em>awaits.</em></h2></div>
         <p class="lead">Cosmetic dentistry is about more than teeth &mdash; it&rsquo;s about confidence. The way you smile in photos, the way you feel in a job interview, the way you catch yourself in the mirror.</p>
@@ -1487,7 +1563,7 @@ footer {
 
   <!-- Orthodontics -->
   <div style="background: var(--cream);">
-    <div class="img-split reveal reverse" style="padding: 100px 60px;">
+    <div class="img-split reveal reverse" style="padding: 140px 60px;">
       <div class="is-text">
         <div class="section-head"><div class="section-number">04 &mdash; Orthodontics</div><h2>A straighter smile,<br><em>on your terms.</em></h2></div>
         <p class="lead">Invisalign gives you the smile you want without a mouth full of metal. Clear aligners, custom-made, worn on your schedule.</p>
