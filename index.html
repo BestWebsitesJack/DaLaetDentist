@@ -918,6 +918,82 @@ section {
 }
 
 
+
+/* BACK TO TOP BUTTON */
+#back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--teal-deep);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: all 0.4s cubic-bezier(0.2,0,0,1);
+  z-index: 50;
+}
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#back-to-top:hover {
+  background: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.22);
+}
+@media (max-width: 640px) {
+  #back-to-top { bottom: 20px; right: 20px; width: 46px; height: 46px; }
+}
+
+/* SIGNATURE CURSOR FLOURISH */
+#cursor-flourish {
+  position: fixed;
+  pointer-events: none;
+  font-family: var(--script);
+  font-size: 32px;
+  color: var(--teal-deep);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.2,0,0,1);
+  z-index: 1001;
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+  letter-spacing: 0.5px;
+  left: 0; top: 0;
+}
+#cursor-flourish.show { opacity: 0.9; }
+@media (max-width: 1024px) { #cursor-flourish { display: none; } }
+
+/* HERO SCROLL PARALLAX */
+.hero-image-frame img {
+  transform: scale(1.15);
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* REDUCED MOTION — accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .signature { clip-path: none !important; animation: none !important; }
+  #cursor-flourish { display: none !important; }
+  .hero-image-frame img { transform: scale(1) !important; }
+  body::before { opacity: 0 !important; }
+}
+
 /* IMAGE SPLIT LAYOUTS */
 .img-split {
   display: grid;
@@ -928,7 +1004,12 @@ section {
   margin: 0 auto;
   padding: 140px 60px;
 }
-.img-split + .img-split { border-top: 1px solid var(--rule); }
+.img-split + .img-split,
+section + section,
+section + .img-split,
+.img-split + section,
+section + .pull-quote,
+.pull-quote + section { border-top: 1px solid rgba(91, 191, 191, 0.4); }
 .img-split.reverse .is-text { order: 2; }
 .img-split.reverse .is-img { order: 1; }
 .img-split .is-text { max-width: 560px; }
@@ -1234,7 +1315,7 @@ footer {
         <p style="font-size: 18px; line-height: 1.7; color: #555; margin-top: 44px; max-width: 480px;">From a child&rsquo;s first visit to the kind of cosmetic work you only trust to someone you know &mdash; every treatment, tailored. Every patient, remembered.</p>
       </div>
       <div style="aspect-ratio: 4/5; overflow: hidden; background: var(--paper); position: relative;">
-        <img src="./src/hero-3.jpg" style="width:100%; height:100%; object-fit:cover; filter: contrast(1.05) saturate(1.1);" alt="DeLaet Dentistry">
+        <img loading="lazy" src="./src/hero-3.jpg" style="width:100%; height:100%; object-fit:cover; filter: contrast(1.05) saturate(1.1);" alt="DeLaet Dentistry">
         <div style="position:absolute; bottom:24px; left:24px; color:white; font-family: var(--serif); font-style:italic; font-size:18px; font-weight:300; z-index:2;">Where you&rsquo;ll feel at home.</div>
         <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 50%); pointer-events:none;"></div>
       </div>
@@ -1295,15 +1376,15 @@ footer {
 
   <!-- Gallery -->
   <div class="gallery-strip" id="space-home">
-    <div class="gallery-item"><img src="./src/hero-1.jpg"><div class="gallery-caption">The front door</div></div>
-    <div class="gallery-item"><img src="./src/hero-2.jpg"><div class="gallery-caption">Where you&rsquo;ll walk in</div></div>
-    <div class="gallery-item"><img src="./src/hero-3.jpg"><div class="gallery-caption">Where you&rsquo;ll wait</div></div>
-    <div class="gallery-item"><img src="./src/hero-4.jpg"><div class="gallery-caption">Where the magic happens</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-1.jpg"><div class="gallery-caption">The front door</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-2.jpg"><div class="gallery-caption">Where you&rsquo;ll walk in</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-3.jpg"><div class="gallery-caption">Where you&rsquo;ll wait</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-4.jpg"><div class="gallery-caption">Where the magic happens</div></div>
   </div>
 
   <!-- Meet Dr. -->
   <div class="meet-section" id="meet-home">
-    <div class="meet-img reveal"><img src="./src/dr-delaet.jpg" alt="Dr. Tyler DeLaet, DMD"></div>
+    <div class="meet-img reveal"><img loading="lazy" src="./src/dr-delaet.jpg" alt="Dr. Tyler DeLaet, DMD"></div>
     <div class="reveal">
       <div class="eyebrow"><span class="num">02</span><span class="rule"></span><span>The Doctor</span></div>
       <h2 style="font-family:var(--serif);font-weight:300;font-size:60px;line-height:1.0;letter-spacing:-2px;color:var(--ink);margin-bottom:36px;">
@@ -1325,11 +1406,11 @@ footer {
     <blockquote style="color:var(--ink);font-size:38px;">A smile transformation.<br><em>Case 01.</em></blockquote>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:900px;margin:60px auto 0;">
       <div style="aspect-ratio:1;overflow:hidden;position:relative;">
-        <img src="./src/before-01.jpg" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05);">
+        <img loading="lazy" src="./src/before-01.jpg" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05);">
         <div style="position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.6);color:white;padding:6px 14px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">Before</div>
       </div>
       <div style="aspect-ratio:1;overflow:hidden;position:relative;">
-        <img src="./src/after-01.jpg" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05);">
+        <img loading="lazy" src="./src/after-01.jpg" style="width:100%;height:100%;object-fit:cover;filter:contrast(1.05);">
         <div style="position:absolute;bottom:16px;left:16px;background:var(--teal-deep);color:white;padding:6px 14px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;">After</div>
       </div>
     </div>
@@ -1378,7 +1459,7 @@ footer {
       <p>The practice has undergone recent renovations with a complete upgrade of the operating space and technology to give our patients the best experience possible.</p>
       <p>Our mission is simple: treat every patient as if they are an extension of our own family &mdash; so that they feel comfortable and valued.</p>
     </div>
-    <div class="is-img"><img src="./src/about-brand.jpg" alt="DeLaet Dentistry brand wall"></div>
+    <div class="is-img"><img loading="lazy" src="./src/about-brand.jpg" alt="DeLaet Dentistry brand wall"></div>
   </div>
 
   <!-- Mission quote -->
@@ -1436,10 +1517,10 @@ footer {
     <p class="section-head-sub reveal">We&rsquo;ve invested in a complete renovation of our space and technology so every visit is as comfortable and modern as possible.</p>
   </section>
   <div class="gallery-strip">
-    <div class="gallery-item"><img src="./src/hero-1.jpg"><div class="gallery-caption">The front door</div></div>
-    <div class="gallery-item"><img src="./src/hero-2.jpg"><div class="gallery-caption">The entrance</div></div>
-    <div class="gallery-item"><img src="./src/hero-3.jpg"><div class="gallery-caption">The waiting room</div></div>
-    <div class="gallery-item"><img src="./src/hero-4.jpg"><div class="gallery-caption">Where you&rsquo;ll be cared for</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-1.jpg"><div class="gallery-caption">The front door</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-2.jpg"><div class="gallery-caption">The entrance</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-3.jpg"><div class="gallery-caption">The waiting room</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-4.jpg"><div class="gallery-caption">Where you&rsquo;ll be cared for</div></div>
   </div>
 
   <!-- Awards -->
@@ -1534,7 +1615,7 @@ footer {
       <p><strong>What&rsquo;s included:</strong> Routine cleanings, oral exams, digital X-rays, oral cancer screenings, fluoride treatments, sealants.</p>
       <p>Modern digital X-rays mean less radiation and clearer images. Combined with our iTero 3D scanner, we see things traditional checkups miss.</p>
     </div>
-    <div class="is-img"><img src="./src/svc-preventive.jpg" alt="Preventive care room"></div>
+    <div class="is-img"><img loading="lazy" src="./src/svc-preventive.jpg" alt="Preventive care room"></div>
   </div>
 
   <!-- Cosmetic -->
@@ -1546,7 +1627,7 @@ footer {
         <p><strong>What&rsquo;s included:</strong> Teeth whitening, porcelain veneers, cosmetic bonding, full smile makeovers.</p>
         <p>Every cosmetic case begins with a conversation. We want to understand what you&rsquo;re hoping for before we discuss what&rsquo;s possible.</p>
       </div>
-      <div class="is-img"><img src="./src/svc-cosmetic.jpg" alt="Cosmetic treatment room"></div>
+      <div class="is-img"><img loading="lazy" src="./src/svc-cosmetic.jpg" alt="Cosmetic treatment room"></div>
     </div>
   </div>
 
@@ -1558,7 +1639,7 @@ footer {
       <p><strong>What&rsquo;s included:</strong> Fillings, crowns, bridges, partial and full dentures, root canal therapy, extractions.</p>
       <p>We use materials that match your natural tooth color and techniques that minimize discomfort. Modern restorative dentistry is almost invisible.</p>
     </div>
-    <div class="is-img"><img src="./src/svc-restorative.jpg" alt="Restorative treatment room"></div>
+    <div class="is-img"><img loading="lazy" src="./src/svc-restorative.jpg" alt="Restorative treatment room"></div>
   </div>
 
   <!-- Orthodontics -->
@@ -1570,7 +1651,7 @@ footer {
         <p><strong>What&rsquo;s included:</strong> Full Invisalign treatment planning, aligner fabrication and fittings, progress monitoring, retainers.</p>
         <p>Dr. DeLaet is a Certified Invisalign Provider. Treatment typically takes 6&ndash;18 months depending on your case.</p>
       </div>
-      <div class="is-img"><img src="./src/svc-ortho.jpg" alt="Orthodontics consultation space"></div>
+      <div class="is-img"><img loading="lazy" src="./src/svc-ortho.jpg" alt="Orthodontics consultation space"></div>
     </div>
   </div>
 
@@ -1582,7 +1663,7 @@ footer {
       <p><strong>What&rsquo;s included:</strong> Pediatric dentistry, teen Invisalign, adult preventive and restorative care, senior dental care.</p>
       <p>Kids&rsquo; first visits are gentle and friendly. We take the time to make the dentist feel like a safe place &mdash; because it is.</p>
     </div>
-    <div class="is-img"><img src="./src/svc-family.jpg" alt="Welcoming family lobby"></div>
+    <div class="is-img"><img loading="lazy" src="./src/svc-family.jpg" alt="Welcoming family lobby"></div>
   </div>
 
   <!-- Technology -->
@@ -1950,6 +2031,63 @@ document.querySelectorAll('.hero-right').forEach(heroRight => {
 
 // Initial render
 renderProgressRail('home');
+
+// Back to top button
+const backTop = document.getElementById('back-to-top');
+if (backTop) {
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// Signature cursor flourish on key CTAs
+const flourish = document.getElementById('cursor-flourish');
+if (flourish && window.matchMedia('(min-width: 1025px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let fx = 0, fy = 0, targetX = 0, targetY = 0;
+  document.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  }, { passive: true });
+  const animateFlourish = () => {
+    fx += (targetX - fx) * 0.18;
+    fy += (targetY - fy) * 0.18;
+    flourish.style.transform = `translate3d(${fx + 24}px, ${fy + 18}px, 0)`;
+    requestAnimationFrame(animateFlourish);
+  };
+  animateFlourish();
+  const ctaSelectors = '.hero-phone, .nav-phone, .meet-link, .fin-cta, .form-submit, .service';
+  document.querySelectorAll(ctaSelectors).forEach(el => {
+    el.addEventListener('mouseenter', () => flourish.classList.add('show'));
+    el.addEventListener('mouseleave', () => flourish.classList.remove('show'));
+  });
+}
+
+// Hero scroll parallax (across all pages)
+let scrollTick = false;
+window.addEventListener('scroll', () => {
+  if (scrollTick) return;
+  scrollTick = true;
+  requestAnimationFrame(() => {
+    const scrollY = Math.min(window.scrollY, 1000);
+    const img = document.querySelector('.page.active .hero-image-frame img');
+    if (img && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      img.style.transform = `translate3d(0, ${scrollY * 0.15}px, 0) scale(1.15)`;
+    }
+    scrollTick = false;
+  });
+}, { passive: true });
+
 </script>
+
+<!-- Back to Top button -->
+<button id="back-to-top" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<!-- Signature cursor flourish -->
+<div id="cursor-flourish">&mdash; Tyler D.</div>
+
 </body>
 </html>
