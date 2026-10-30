@@ -1265,36 +1265,51 @@ footer {
 /* GLOBAL IMAGE POLICY — every content photo at natural dimensions (permanent, Squarespace-style) */
 .page img { display: block; max-width: 100%; height: auto; }
 
-/* ============ IMAGE CAROUSEL (universal discipline: natural dims, one at a time) ============ */
-.gallery-carousel { position: relative; overflow: hidden; background: var(--paper); }
-.carousel-slide { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; transition: opacity 0.8s cubic-bezier(0.2,0,0,1); pointer-events: none; }
-.carousel-slide.active { position: relative; opacity: 1; pointer-events: auto; }
-.carousel-slide img { display: block; width: 100%; height: auto; }
-.carousel-slide .gallery-caption {
-  position: absolute; bottom: 40px; left: 48px; color: white;
-  font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; font-style: italic;
-  letter-spacing: -0.5px; text-shadow: 0 2px 24px rgba(0,0,0,0.65); z-index: 2;
+
+/* ============ GALLERY GRID (Squarespace-style uniform portrait cells) ============ */
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
 }
-.carousel-prev, .carousel-next {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(255,255,255,0.92); color: var(--charcoal);
-  border: 0; width: 56px; height: 56px; border-radius: 50%;
-  cursor: pointer; font-size: 22px; z-index: 10;
-  transition: all 0.3s cubic-bezier(0.2,0,0,1);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+.gallery-item {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: var(--cream);
 }
-.carousel-prev:hover, .carousel-next:hover { background: var(--teal); color: white; transform: translateY(-50%) scale(1.08); }
-.carousel-prev { left: 24px; }
-.carousel-next { right: 24px; }
-.carousel-dots { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
-.carousel-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.5); border: 0; cursor: pointer; transition: all 0.3s; padding: 0; }
-.carousel-dot.active { background: white; width: 32px; border-radius: 5px; }
-@media (max-width: 768px) {
-  .carousel-slide .gallery-caption { font-size: 22px; bottom: 28px; left: 24px; }
-  .carousel-prev, .carousel-next { width: 44px; height: 44px; }
-  .carousel-prev { left: 12px; } .carousel-next { right: 12px; }
+.gallery-item img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.8s cubic-bezier(0.2,0,0,1);
+  filter: contrast(1.05) saturate(1.1);
 }
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.55));
+  pointer-events: none;
+  z-index: 1;
+}
+.gallery-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  color: white;
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-style: italic;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+@media (max-width: 1024px) { .gallery-strip { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .gallery-strip { grid-template-columns: 1fr; } .gallery-item { aspect-ratio: 4/3; } }
 </style>
 </head>
 <body>
@@ -1487,19 +1502,11 @@ footer {
   </div>
 
   <!-- Gallery -->
-  <div class="gallery-carousel" id="space-home">
-    <div class="carousel-slide active"><img loading="lazy" src="./src/hero-1.jpg"><div class="gallery-caption">The front door</div></div>
-    <div class="carousel-slide"><img loading="lazy" src="./src/hero-2.jpg"><div class="gallery-caption">Where you&rsquo;ll walk in</div></div>
-    <div class="carousel-slide"><img loading="lazy" src="./src/hero-3.jpg"><div class="gallery-caption">Where you&rsquo;ll wait</div></div>
-    <div class="carousel-slide"><img loading="lazy" src="./src/hero-4.jpg"><div class="gallery-caption">Where the magic happens</div></div>
-    <button class="carousel-prev" aria-label="Previous">&#8592;</button>
-    <button class="carousel-next" aria-label="Next">&#8594;</button>
-    <div class="carousel-dots">
-      <button class="carousel-dot active" data-i="0"></button>
-      <button class="carousel-dot" data-i="1"></button>
-      <button class="carousel-dot" data-i="2"></button>
-      <button class="carousel-dot" data-i="3"></button>
-    </div>
+  <div class="gallery-strip" id="space-home">
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-1.jpg" alt=""><div class="gallery-caption">The front door</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-2.jpg" alt=""><div class="gallery-caption">Where you'll walk in</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-3.jpg" alt=""><div class="gallery-caption">Where you'll wait</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-4.jpg" alt=""><div class="gallery-caption">Where the magic happens</div></div>
   </div>
 
   <!-- Meet Dr. -->
@@ -1620,19 +1627,11 @@ footer {
     </div>
     <p class="section-head-sub reveal">We&rsquo;ve invested in a complete renovation of our space and technology so every visit is as comfortable and modern as possible.</p>
   </section>
-  <div class="gallery-carousel">
-    <div class="carousel-slide active"><img loading="lazy" src="./src/hero-1.jpg"><div class="gallery-caption">The front door</div></div>
-    <div class="carousel-slide"><img loading="lazy" src="./src/hero-2.jpg"><div class="gallery-caption">The entrance</div></div>
-    <div class="carousel-slide"><img loading="lazy" src="./src/hero-3.jpg"><div class="gallery-caption">The waiting room</div></div>
-    <div class="carousel-slide"><img loading="lazy" src="./src/hero-4.jpg"><div class="gallery-caption">Where you&rsquo;ll be cared for</div></div>
-    <button class="carousel-prev" aria-label="Previous">&#8592;</button>
-    <button class="carousel-next" aria-label="Next">&#8594;</button>
-    <div class="carousel-dots">
-      <button class="carousel-dot active" data-i="0"></button>
-      <button class="carousel-dot" data-i="1"></button>
-      <button class="carousel-dot" data-i="2"></button>
-      <button class="carousel-dot" data-i="3"></button>
-    </div>
+  <div class="gallery-strip">
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-1.jpg" alt=""><div class="gallery-caption">The front door</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-2.jpg" alt=""><div class="gallery-caption">The entrance</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-3.jpg" alt=""><div class="gallery-caption">The waiting room</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-4.jpg" alt=""><div class="gallery-caption">Where you'll be cared for</div></div>
   </div>
 
   <!-- Awards -->
@@ -2193,27 +2192,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 
-// Carousel init - every .gallery-carousel on the page
-document.querySelectorAll('.gallery-carousel').forEach((carousel) => {
-  const slides = carousel.querySelectorAll('.carousel-slide');
-  const dots = carousel.querySelectorAll('.carousel-dot');
-  const prev = carousel.querySelector('.carousel-prev');
-  const next = carousel.querySelector('.carousel-next');
-  let idx = 0, timer = null;
-  const go = (i) => {
-    idx = (i + slides.length) % slides.length;
-    slides.forEach((s, j) => s.classList.toggle('active', j === idx));
-    dots.forEach((d, j) => d.classList.toggle('active', j === idx));
-  };
-  const startAuto = () => {
-    if (timer) clearInterval(timer);
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      timer = setInterval(() => go(idx + 1), 6000);
-    }
-  };
-  const stopAuto = () => { if (timer) { clearInterval(timer); timer = null; } };
-  if (prev) prev.addEventListener('click', () => { go(idx - 1); startAuto(); });
-  if (next) next.addEventListener('click', () => { go(idx + 1); startAuto(); });
+if (next) next.addEventListener('click', () => { go(idx + 1); startAuto(); });
   dots.forEach((d, i) => d.addEventListener('click', () => { go(i); startAuto(); }));
   carousel.addEventListener('mouseenter', stopAuto);
   carousel.addEventListener('mouseleave', startAuto);
