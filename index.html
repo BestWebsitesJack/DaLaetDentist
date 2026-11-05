@@ -285,19 +285,17 @@ nav {
 .hero {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  height: auto;
-  min-height: 460px;
-  max-height: 640px;
-  overflow: hidden;
-  padding-top: 90px;
+  align-items: stretch;
+  padding-top: 80px;
 }
 .hero-left {
-  padding: 40px 48px 40px 80px;
+  padding: 48px 48px 48px 80px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
   background: #ffffff;
+  min-height: 400px;
 }
 .hero h1 {
   font-family: var(--serif);
@@ -339,23 +337,20 @@ nav {
 }
 .hero-right {
   position: relative;
-  overflow: hidden;
 }
 .hero-image-frame {
   position: relative;
   width: 100%;
-  height: 100%;
   overflow: hidden;
   will-change: transform;
   transition: transform 0.6s cubic-bezier(0.2,0,0,1);
 }
-/* HERO EXCEPTION: establishing shot fills its frame (cover). Other images stay natural. */
+/* Image shows at natural proportions — no cropping */
 .hero-image-frame img {
   display: block !important;
   width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center;
+  height: auto !important;
+  object-fit: unset !important;
   filter: contrast(1.05) saturate(1.08);
 }
 .hero-badge {
