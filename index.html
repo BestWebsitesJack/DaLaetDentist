@@ -165,7 +165,7 @@ nav {
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid var(--rule);
   z-index: 100;
-  padding: 16px 56px;
+  padding: 20px 56px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -182,7 +182,7 @@ nav {
 }
 .nav-links { display: flex; gap: 44px; }
 .nav-links a {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--charcoal);
   text-decoration: none;
@@ -202,12 +202,20 @@ nav {
   background: var(--teal);
 }
 .nav-phone {
-  font-family: var(--serif);
-  font-size: 17px;
-  font-weight: 400;
-  color: var(--ink);
-  letter-spacing: -0.2px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.3px;
   text-decoration: none;
+  background: var(--teal-dark);
+  padding: 10px 20px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.nav-phone:hover {
+  background: var(--teal-deep);
+  color: #ffffff;
 }
 
 /* ═══ SHARED COMPONENTS ═══ */
@@ -286,7 +294,7 @@ nav {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: stretch;
-  padding-top: 80px;
+  padding-top: 88px;
 }
 .hero-left {
   padding: 48px 48px 48px 80px;
