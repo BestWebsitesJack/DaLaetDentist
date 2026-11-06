@@ -1324,6 +1324,64 @@ footer {
 }
 @media (max-width: 1024px) { .gallery-strip { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px)  { .gallery-strip { grid-template-columns: 1fr; } .gallery-item { aspect-ratio: 4/3; } }
+/* Home full-bleed hero */
+#page-home .hero-fullbleed {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 88px);
+  min-height: 560px;
+  overflow: hidden;
+  padding-top: 0;
+}
+#page-home .hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: contrast(1.05) saturate(1.08);
+}
+#page-home .hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10,10,10,0.72) 0%,
+    rgba(10,10,10,0.42) 55%,
+    rgba(10,10,10,0.08) 100%
+  );
+}
+#page-home .hero-fullbleed .hero-left {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  transform: translateY(-50%);
+  max-width: 520px;
+  background: none;
+  min-height: unset;
+  padding: 0;
+  justify-content: center;
+}
+#page-home .hero-fullbleed .eyebrow { color: rgba(255,255,255,0.65); }
+#page-home .hero-fullbleed .num { color: rgba(255,255,255,0.35); }
+#page-home .hero-fullbleed .rule { background: rgba(255,255,255,0.3); }
+#page-home .hero-fullbleed h1 { color: #ffffff; }
+#page-home .hero-fullbleed h1 em { color: var(--teal); }
+#page-home .hero-fullbleed .hero-sub { color: rgba(255,255,255,0.75); }
+#page-home .hero-fullbleed .signature { color: var(--teal); }
+#page-home .hero-fullbleed .signature-label { color: rgba(255,255,255,0.45); }
+#page-home .hero-fullbleed .hero-phone-label { color: rgba(255,255,255,0.45); }
+#page-home .hero-fullbleed .hero-phone { color: #ffffff; }
+#page-home .hero-fullbleed .hero-badge {
+  position: absolute;
+  bottom: 32px;
+  right: 48px;
+  background: rgba(255,255,255,0.95);
+  padding: 14px 22px;
+  border-radius: 2px;
+}
 </style>
 </head>
 <body>
@@ -1351,36 +1409,33 @@ footer {
 <!-- ═══════════════════════════════════════════════ -->
 <div id="page-home" class="page active">
 
-  <div class="hero" id="top">
-    <div class="hero-left" style="background:var(--teal-deep);">
-      <div class="eyebrow fade-in d1" style="color:rgba(255,255,255,0.7);">
-        <span class="num" style="color:rgba(255,255,255,0.5);">01</span>
-        <span class="rule" style="background:rgba(255,255,255,0.3);"></span>
+  <div class="hero hero-fullbleed" id="top">
+    <img class="hero-bg-img" src="./src/hero-3.jpg" alt="DeLaet Dentistry — White Oak, Cincinnati">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-left fade-in">
+      <div class="eyebrow d1">
+        <span class="num">01</span>
+        <span class="rule"></span>
         <span>Family &amp; Cosmetic Dentistry</span>
       </div>
-      <h1 class="fade-in d2" style="color:#ffffff;">
-        Dentistry<br>rooted in<br><em style="color:var(--teal);">White&nbsp;Oak.</em>
+      <h1 class="d2">
+        Dentistry<br>rooted in<br><em>White&nbsp;Oak.</em>
       </h1>
-      <p class="hero-sub fade-in d3" style="color:rgba(255,255,255,0.75);">
+      <p class="hero-sub d3">
         Born here. Trained elsewhere. Came home. Dr. TJ DeLaet, DMD continues a 45&#8209;year tradition of family and cosmetic dental care &mdash; in the neighborhood that raised him.
       </p>
-      <div class="signature-block fade-in d4">
-        <span class="signature" style="color:var(--teal);">Tyler DeLaet</span>
-        <span class="signature-label" style="color:rgba(255,255,255,0.5);">Your Dentist</span>
+      <div class="signature-block d4">
+        <span class="signature">Tyler DeLaet</span>
+        <span class="signature-label">Your Dentist</span>
       </div>
-      <div class="hero-phone-group fade-in d5">
-        <span class="hero-phone-label" style="color:rgba(255,255,255,0.5);">Pick up the phone</span>
-        <a href="tel:5137418223" class="hero-phone" style="color:#ffffff;">(513) 741-8223</a>
+      <div class="hero-phone-group d5">
+        <span class="hero-phone-label">Pick up the phone</span>
+        <a href="tel:5137418223" class="hero-phone">(513) 741-8223</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-image-frame" id="heroFrame">
-        <img src="./src/hero-3.jpg" alt="DeLaet Dentistry — White Oak, Cincinnati">
-      </div>
-      <div class="hero-badge">
-        <span class="hero-badge-top">Loved by 400+ patients</span>
-        <span class="hero-badge-bottom">Rated 5.0 &#9733;&#9733;&#9733;&#9733;&#9733;</span>
-      </div>
+    <div class="hero-badge">
+      <span class="hero-badge-top">Loved by 400+ patients</span>
+      <span class="hero-badge-bottom">Rated 5.0 &#9733;&#9733;&#9733;&#9733;&#9733;</span>
     </div>
   </div>
 
