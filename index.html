@@ -1329,10 +1329,11 @@ footer {
   display: block;
   position: relative;
   width: 100%;
-  height: calc(100vh - 88px);
-  min-height: 560px;
+  height: auto;
+  min-height: 700px;
   overflow: hidden;
   padding-top: 0;
+  padding-bottom: 80px;
 }
 #page-home .hero-bg-img {
   position: absolute;
@@ -1354,15 +1355,12 @@ footer {
   );
 }
 #page-home .hero-fullbleed .hero-left {
-  position: absolute;
-  top: 50%;
-  left: 80px;
-  transform: translateY(-58%);
+  position: relative;
+  z-index: 2;
+  padding: 100px 0 60px 80px;
   max-width: 520px;
   background: none;
   min-height: unset;
-  padding: 0;
-  justify-content: center;
 }
 #page-home .hero-fullbleed .eyebrow { color: rgba(255,255,255,0.65); }
 #page-home .hero-fullbleed .num { color: rgba(255,255,255,0.35); }
