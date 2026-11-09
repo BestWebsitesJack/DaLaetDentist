@@ -1380,6 +1380,21 @@ footer {
   padding: 14px 22px;
   border-radius: 2px;
 }
+/* About hero background phrase */
+.about-bg-phrase {
+  position: absolute;
+  top: -20px;
+  left: 40px;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 96px;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  color: rgba(0,0,0,0.055);
+  pointer-events: none;
+  font-variation-settings: "opsz" 144;
+  user-select: none;
+}
 </style>
 </head>
 <body>
@@ -1603,7 +1618,8 @@ footer {
 <div id="page-about" class="page">
 
   <div class="hero" style="border-bottom:3px solid var(--teal);">
-    <div class="hero-left" style="background:var(--paper);">
+    <div class="hero-left" style="background:var(--paper); position:relative; overflow:hidden;">
+      <div class="about-bg-phrase">45 years of<br>White Oak<br>smiles.</div>
       <div class="eyebrow fade-in d1">
         <span class="num">02</span>
         <span class="rule"></span>
