@@ -1324,6 +1324,38 @@ footer {
 }
 @media (max-width: 1024px) { .gallery-strip { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px)  { .gallery-strip { grid-template-columns: 1fr; } .gallery-item { aspect-ratio: 4/3; } }
+/* Footer CTA band */
+.footer-cta {
+  background: var(--teal-deep);
+  padding: 56px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.footer-cta-text {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+.footer-cta-btn {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--teal-deep);
+  background: #ffffff;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.footer-cta-btn:hover {
+  background: var(--cream);
+}
+
 /* Home full-bleed hero */
 #page-home .hero-fullbleed {
   display: block;
@@ -2078,6 +2110,10 @@ footer {
 <!-- ═══════════════════════════════════════════════ -->
 <!-- ═══ FOOTER ═══════════════════════════════════ -->
 <!-- ═══════════════════════════════════════════════ -->
+<div class="footer-cta">
+  <p class="footer-cta-text">Ready to schedule your visit?</p>
+  <a href="tel:5137418223" class="footer-cta-btn">Call (513) 741-8223</a>
+</div>
 <footer>
   <div class="foot-grid">
     <div>
