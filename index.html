@@ -2184,11 +2184,11 @@ const pageMeta = {
 };
 
 const sectionMap = {
-  home:     [['top','Home'],['services-home','Services'],['quote-home','Promise'],['space-home','Our Space']],
-  about:    [['top','About'],['top','Our Story'],['top','Meet Dr.'],['top','Awards'],['top','Team']],
-  services: [['top','Overview'],['top','Preventive'],['top','Cosmetic'],['top','Restorative'],['top','Family']],
-  finances: [['top','Overview'],['top','Pay Bill'],['top','Insurance'],['top','Financing']],
-  contact:  [['top','Say Hello'],['top','Contact'],['top','Resources']]
+  home:     [['top','Home'],['reviews-home','Reviews'],['services-home','Services'],['quote-home','Promise'],['space-home','Our Space']],
+  about:    [['top','About'],['top','Our Story'],['top','Team']],
+  services: [['top','Overview']],
+  finances: [['top','Overview']],
+  contact:  [['top','Say Hello']]
 };
 
 function showPage(name) {
@@ -2236,7 +2236,22 @@ function renderProgressRail(pageName) {
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
+  // Update active dot on scroll
+  updateActiveRailDot();
 }
+
+function updateActiveRailDot() {
+  const dots = document.querySelectorAll('.progress-dot');
+  if (!dots.length) return;
+  const targets = Array.from(dots).map(d => document.getElementById(d.dataset.target)).filter(Boolean);
+  let active = 0;
+  targets.forEach((el, i) => {
+    if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.5) active = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === active));
+}
+
+window.addEventListener('scroll', updateActiveRailDot, { passive: true });
 
 // ═══ SCROLL REVEAL OBSERVER ═══
 const observer = new IntersectionObserver((entries) => {
