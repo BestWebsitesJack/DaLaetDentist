@@ -1610,19 +1610,19 @@ footer {
   <div id="space-home" style="position:relative; background:#111; overflow:hidden; user-select:none;">
     <!-- Track -->
     <div id="gallery-track" style="display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);">
-      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:16/7;">
+      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:4/3;">
         <img loading="lazy" src="./src/hero-1.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="The front door">
         <div class="gc-caption">The front door</div>
       </div>
-      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:16/7;">
+      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:4/3;">
         <img loading="lazy" src="./src/hero-2.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Where you'll walk in">
         <div class="gc-caption">Where you'll walk in</div>
       </div>
-      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:16/7;">
+      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:4/3;">
         <img loading="lazy" src="./src/hero-3.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Where you'll wait">
         <div class="gc-caption">Where you'll wait</div>
       </div>
-      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:16/7;">
+      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:4/3;">
         <img loading="lazy" src="./src/hero-4.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Where the magic happens">
         <div class="gc-caption">Where the magic happens</div>
       </div>
@@ -1671,6 +1671,7 @@ footer {
     }
     window.gcMove=function(dir){go(idx+dir);};
     if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+    setInterval(function(){go(idx+1);},3000);
   })();
   </script>
 
