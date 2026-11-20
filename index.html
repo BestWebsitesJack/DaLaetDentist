@@ -1607,12 +1607,36 @@ footer {
   </div>
 
   <!-- Gallery -->
-  <div class="gallery-strip" id="space-home">
-    <div class="gallery-item"><img loading="lazy" src="./src/hero-1.jpg" alt=""><div class="gallery-caption">The front door</div></div>
-    <div class="gallery-item"><img loading="lazy" src="./src/hero-2.jpg" alt=""><div class="gallery-caption">Where you'll walk in</div></div>
-    <div class="gallery-item"><img loading="lazy" src="./src/hero-3.jpg" alt=""><div class="gallery-caption">Where you'll wait</div></div>
-    <div class="gallery-item"><img loading="lazy" src="./src/hero-4.jpg" alt=""><div class="gallery-caption">Where the magic happens</div></div>
+  <div id="space-home" style="position:relative;">
+    <div class="gallery-strip" id="gallery-grid">
+      <div class="gallery-item"><img loading="lazy" src="./src/hero-1.jpg" alt=""><div class="gallery-caption">The front door</div></div>
+      <div class="gallery-item"><img loading="lazy" src="./src/hero-2.jpg" alt=""><div class="gallery-caption">Where you'll walk in</div></div>
+      <div class="gallery-item"><img loading="lazy" src="./src/hero-3.jpg" alt=""><div class="gallery-caption">Where you'll wait</div></div>
+      <div class="gallery-item"><img loading="lazy" src="./src/hero-4.jpg" alt=""><div class="gallery-caption">Where the magic happens</div></div>
+    </div>
+    <button onclick="gcMove(-1)" aria-label="Previous" style="position:absolute;top:50%;left:12px;transform:translateY(-50%);background:rgba(0,0,0,0.35);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.3);color:#fff;width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;">&#8592;</button>
+    <button onclick="gcMove(1)" aria-label="Next" style="position:absolute;top:50%;right:12px;transform:translateY(-50%);background:rgba(0,0,0,0.35);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.3);color:#fff;width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;">&#8594;</button>
   </div>
+  <script>
+  (function(){
+    var all = [
+      {src:'./src/hero-1.jpg', cap:'The front door'},
+      {src:'./src/hero-2.jpg', cap:'Where you\'ll walk in'},
+      {src:'./src/hero-3.jpg', cap:'Where you\'ll wait'},
+      {src:'./src/hero-4.jpg', cap:'Where the magic happens'}
+    ];
+    var offset = 0;
+    window.gcMove = function(dir){
+      offset = (offset + dir + all.length) % all.length;
+      var items = document.querySelectorAll('#gallery-grid .gallery-item');
+      items.forEach(function(item, i){
+        var d = all[(offset + i) % all.length];
+        item.querySelector('img').src = d.src;
+        item.querySelector('.gallery-caption').textContent = d.cap;
+      });
+    };
+  })();
+  </script>
 
   <!-- Meet Dr. -->
 
