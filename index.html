@@ -1606,74 +1606,13 @@ footer {
     </cite>
   </div>
 
-  <!-- Gallery Carousel -->
-  <div id="space-home" style="position:relative; background:#111; overflow:hidden; user-select:none;">
-    <!-- Track -->
-    <div id="gallery-track" style="display:flex; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);">
-      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:3/4;">
-        <img loading="lazy" src="./src/hero-1.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="The front door">
-        <div class="gc-caption">The front door</div>
-      </div>
-      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:3/4;">
-        <img loading="lazy" src="./src/hero-2.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Where you'll walk in">
-        <div class="gc-caption">Where you'll walk in</div>
-      </div>
-      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:3/4;">
-        <img loading="lazy" src="./src/hero-3.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Where you'll wait">
-        <div class="gc-caption">Where you'll wait</div>
-      </div>
-      <div class="gc-slide" style="min-width:100%; position:relative; aspect-ratio:3/4;">
-        <img loading="lazy" src="./src/hero-4.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Where the magic happens">
-        <div class="gc-caption">Where the magic happens</div>
-      </div>
-    </div>
-    <!-- Prev arrow -->
-    <button onclick="gcMove(-1)" aria-label="Previous" style="position:absolute;top:50%;left:24px;transform:translateY(-50%);background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.25);color:#fff;width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:10;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">&#8592;</button>
-    <!-- Next arrow -->
-    <button onclick="gcMove(1)" aria-label="Next" style="position:absolute;top:50%;right:24px;transform:translateY(-50%);background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.25);color:#fff;width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;z-index:10;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">&#8594;</button>
-    <!-- Dots -->
-    <div id="gc-dots" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;"></div>
+  <!-- Gallery -->
+  <div class="gallery-strip" id="space-home">
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-1.jpg" alt=""><div class="gallery-caption">The front door</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-2.jpg" alt=""><div class="gallery-caption">Where you'll walk in</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-3.jpg" alt=""><div class="gallery-caption">Where you'll wait</div></div>
+    <div class="gallery-item"><img loading="lazy" src="./src/hero-4.jpg" alt=""><div class="gallery-caption">Where the magic happens</div></div>
   </div>
-  <style>
-    .gc-caption { position:absolute; bottom:0; left:0; right:0; padding:40px 32px 20px; background:linear-gradient(to top,rgba(0,0,0,0.6),transparent); color:#fff; font-family:var(--sans); font-size:13px; font-weight:500; letter-spacing:0.08em; }
-    .gc-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.35); border:none; cursor:pointer; padding:0; transition:background 0.2s,transform 0.2s; }
-    .gc-dot.active { background:#fff; transform:scale(1.3); }
-  </style>
-  <script>
-  (function(){
-    var idx=0, slides, dots;
-    function init(){
-      slides=document.querySelectorAll('.gc-slide');
-      var dc=document.getElementById('gc-dots');
-      slides.forEach(function(_,i){
-        var d=document.createElement('button');
-        d.className='gc-dot'+(i===0?' active':'');
-        d.setAttribute('aria-label','Slide '+(i+1));
-        d.onclick=function(){go(i);};
-        dc.appendChild(d);
-      });
-      dots=dc.querySelectorAll('.gc-dot');
-      // keyboard
-      document.addEventListener('keydown',function(e){
-        if(e.key==='ArrowLeft')gcMove(-1);
-        if(e.key==='ArrowRight')gcMove(1);
-      });
-      // swipe
-      var sx=0;
-      var t=document.getElementById('gallery-track');
-      t.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
-      t.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)gcMove(dx<0?1:-1);},{passive:true});
-    }
-    function go(n){
-      idx=(n+slides.length)%slides.length;
-      document.getElementById('gallery-track').style.transform='translateX(-'+(idx*100)+'%)';
-      dots.forEach(function(d,i){d.className='gc-dot'+(i===idx?' active':'');});
-    }
-    window.gcMove=function(dir){go(idx+dir);};
-    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
-    setInterval(function(){go(idx+1);},3000);
-  })();
-  </script>
 
   <!-- Meet Dr. -->
 
